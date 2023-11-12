@@ -1,14 +1,13 @@
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setFilter } from '../../redux/filter';
 import css from './ContactFilter.module.css';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from '../../redux/filter';
-
-function ContactFilter() {
-
+function Filter() {
     const value = useSelector(state => state.filter.value);
     const dispatch = useDispatch();
-    const handleChange = event => {
-        dispatch(setFilter(event.target.value));
+    const handleChange = e => {
+        dispatch(setFilter(e.target.value));
     };
 
     return (
@@ -21,7 +20,7 @@ function ContactFilter() {
                 onChange={handleChange}
             />
         </div>
-    )
+    );
 }
 
-export default ContactFilter;
+export default Filter;
